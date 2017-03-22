@@ -1,12 +1,15 @@
 <?php
+/**
+ *  This file is for connecting to the database.
+ */
     //Declare database variables
     define("HOST", "localhost");
     define("USER", "lampuser");
     define("PASSWORD", "password");
-    define("DATABASE", "proj_2");
+    define("DATABASE", "lamp2contacts");
 
     //Create connection
-    $conn = new mysqli(HOST, USER, PASSWORD, "DATABASE");
+    $conn = new mysqli(HOST, USER, PASSWORD, DATABASE);
 
     //Error
     if($conn->connect_error){

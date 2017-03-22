@@ -1,3 +1,6 @@
+<?php
+    require_once('Data.php');
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,7 @@
     </header>
     <main>
         <form action="" method="GET">
-            <input type="text">
+            <label for="search">Search for friends</label><input name="search_input" id="search" type="text">
             <input type="submit" value="Search">
         </form>
     </main>
