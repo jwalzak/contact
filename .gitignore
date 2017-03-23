@@ -98,3 +98,6 @@ $RECYCLE.BIN/
 
 
 # End of https://www.gitignore.io/api/windows,vim,sublimetext,microsoftoffice,adobe
+
+#jQuery
+js/jquery-3.1.1.js
