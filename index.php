@@ -1,5 +1,6 @@
 <?php
 require_once("data.php");
+require_once("Connect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,8 +8,8 @@ require_once("data.php");
     <meta charset="UTF-8">
     <title>CONTACTOR</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script type="text/javascript" href="js/jquery-3.1.1.js"></script>
-    <script type="text/javascript" href="js/main.js"></script>
+    <script type="text/javascript" src="./js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
 </head>
 <body>
     <header>

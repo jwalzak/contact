@@ -5,7 +5,6 @@
 require_once('Connect.php');
 
 if($_SERVER['REQUEST_METHOD'] == "GET"){
-    echo "here";
 
     if($_GET['action'] == "load"){
         loadContact($conn);
@@ -14,9 +13,10 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 }//End if
 
 function loadContact($connection){
+    
     $listArray = array();
     $query = "SELECT  * FROM addresses";
-    $rs = $conn->query($query);
+    $rs = $connection->query($query);
 
     while($info = $rs->fetch_assoc()){
         array_push($listArray, $info);
