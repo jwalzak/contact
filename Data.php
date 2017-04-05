@@ -4,12 +4,28 @@
  */
 require_once('Connect.php');
 
-if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['search_input'])){
+if($_SERVER['REQUEST_METHOD'] == "GET"){
     echo "here";
-}
 
-if($_SERVER['REQUEST_METHOD'] == "GET" && $_GET['action'] == "load"){
-    $listArray = array("one" => 1, "two" => 2);
+    if($_GET['action'] == "load"){
+        loadContact($conn);
+    }//end if
+
+}//End if
+
+function loadContact($connection){
+    $listArray = array();
+    $query = "SELECT  * FROM addresses";
+    $rs = $conn->query($query);
+
+    while($info = $rs->fetch_assoc()){
+        array_push($listArray, $info);
+    }//End while
+
     echo json_encode($listArray);
-}
+}//End loadFunction 
+
+
+
+
 

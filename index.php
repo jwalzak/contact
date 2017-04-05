@@ -1,3 +1,6 @@
+<?php
+require_once("data.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +15,25 @@
         <h1 class="title" id="title">Contactor, the web's formost Contact getting bot!</h1>
     </header>
     <main>
-        <form action="" method="GET">
-            <label for="search">Search for friends</label><input name="search_input" id="search" type="text">
+        <form action="">
+            <label for="search">Search by Full name:</label><input name="search_input" id="search" type="text">
             <input type="submit" value="Search">
         </form>
+        <form action="">
+            <input type="text" name="firstName"><label for="firstName">First Name</label><br />
+            <input type="text" name="lastName"><label for="lastName">Last Name</label><br />
+            <input type="text" name="city"><label for="city">City</label><br />
+            <input type="text" name="region"><label for="region">Region</label><br />
+            <input type="text" name="emailOne"><label for="emailOne">Email 1</label><br />
+            <input type="text" name="emailTwo"><label for="emailTwo">Email 2</label><br />
+            <input type="text" name="phoneNumOne"><label for="phoneNumOne">Phone Number 1</label><br />
+            <input type="text" name="PhoneNumTwo"><label for="phoneNumTwo">Phone Number 2</label><br />
+            <input type="submit">
+        </form>
+
+        <div id="contacts" class="contacts">
+            
+        </div>
     </main>
 </body>
 </html>
