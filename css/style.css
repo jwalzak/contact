@@ -6,5 +6,8 @@ body{
 
 .singleContact{
     border: 1px solid #000;
-    width: 150px;
+}
+
+.button {
+    color: #000;
 }
