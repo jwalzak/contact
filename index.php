@@ -7,7 +7,9 @@ require_once("Connect.php");
 <head>
     <meta charset="UTF-8">
     <title>CONTACTOR</title>
-
+    
+    <!--Fonts used Space Mono and Arvo-->
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Space+Mono:700" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/svg.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -20,10 +22,10 @@ require_once("Connect.php");
 <div class="container-fluid">
     <div class="col-md-12">
         <header class="top">
-            <h1 class="title" id="title">Contactor, the web's formost Contact getting bot!</h1>
+            <h1 class="title" id="title">Contact</h1>
         </header>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-4">
         <main>
             <form action="">
                 <label for="search">Search by Full name:</label><input name="search_input" id="search" type="text">
@@ -42,9 +44,9 @@ require_once("Connect.php");
             </form>
     </div>
 
-            <div id="contacts" class="contacts col-md-12"></div>
-        </main>
+        <div id="contacts" class="contacts col-md-8"></div>
     </div>
+        </main>
 
 </body>
 </html>

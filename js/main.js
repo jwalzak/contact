@@ -41,6 +41,7 @@ function displayContacts(contact){
         $("#contacts").append($contactDiv);
         console.log(contact[i]);
         $("#button-" + contact[i].addr_id).click(function(){
+            //Gets the value from the hidden input
             update($(this).siblings('input').val());
         });
     }//End for

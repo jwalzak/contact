@@ -4,6 +4,16 @@ body{
     size: 15px;
 }
 
+header {
+    height: 300px;
+    text-align: center;
+}
+
+header, h1 {
+    font-family: 'Arvo', serif;
+    font-size: 2em;
+}
+
 .singleContact{
     border: 1px solid #000;
 }
