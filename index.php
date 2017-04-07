@@ -12,7 +12,7 @@ require_once("Connect.php");
     <script type="text/javascript" src="./js/main.js"></script>
 </head>
 <body>
-    <header>
+    <header class="top">
         <h1 class="title" id="title">Contactor, the web's formost Contact getting bot!</h1>
     </header>
     <main>
