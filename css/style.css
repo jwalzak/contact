@@ -1,3 +1,10 @@
+body{
+    color: #fff;
+    font-family: arial;
+    size: 15px;
+}
+
 .singleContact{
     border: 1px solid #000;
+    width: 150px;
 }
