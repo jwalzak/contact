@@ -1,10 +1,12 @@
 <?php
+
 /**
  *  This file will do all of the data handling.
  */
 require_once('Connect.php');
 
-if($_SERVER['REQUEST_METHOD'] == "GET"){
+if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['action'])){
+header("Content-Type:applicaton/json");
 
     if($_GET['action'] == "load"){
         loadContact($conn);
@@ -15,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 function loadContact($connection){
     
     $listArray = array();
-    $query = "SELECT  * FROM addresses";
+    $query = "SELECT * FROM addresses";
     $rs = $connection->query($query);
 
     while($info = $rs->fetch_assoc()){
