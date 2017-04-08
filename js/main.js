@@ -42,13 +42,33 @@ function displayContacts(contact){
         console.log(contact[i]);
         $("#button-" + contact[i].addr_id).click(function(){
             //Gets the value from the hidden input
-            update($(this).siblings('input').val());
+            loadOneContact($(this).siblings('input').val());
         });
     }//End for
 }//End displayContacts();
 
 //Update contact function
-function update(updateId){
-    console.log(updateId);
+function loadOneContact(updateId){
+    $.get("data.php?action=update&id=" + updateId, function(res){
+        $('#firstName').val(res[0].addr_first_name);
+        $('#lastName').val(res[0].addr_last_name);
+        $('#city').val(res[0].addr_city);
+        $('#region').val(res[0].addr_region);
+        $('#emailOne').val(res[0].addr_email_1);
+        $('#emailTwo').val(res[0].addr_email_2);
+        $('#phoneOne').val(res[0].addr_phone_1);
+        $('#phoneTwo').val(res[0].addr_phone_2);
+
+        console.log(res[0].addr_phone_2);
+        let conId = res[0].addr_id;
+        let $updateContact = $("<button>").attr("id", "saveUpdate").addClass("btn-info btn-lg").text("Save").click(function(){
+            saveUpdate(conId);
+        });
+        $("#form").append($updateContact);
+    });
 }//End update();
+
+function saveUpdate(id){
+    $("#saveUpdate").remove();
+}//End saveUpdate
 

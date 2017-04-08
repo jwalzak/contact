@@ -25,21 +25,21 @@ require_once("Connect.php");
             <h1 class="title" id="title">Contact</h1>
         </header>
     </div>
-    <div class="col-md-4">
+    <div id="form" class="col-md-4">
         <main>
             <form action="">
                 <label for="search">Search by Full name:</label><input name="search_input" id="search" type="text">
-                <input type="submit" value="Search">
+                <input type="submit" class="btn-info btn-lg" value="Search">
             </form>
             <form action="">
-                <input type="text" name="firstName"><label for="firstName">First Name</label><br />
-                <input type="text" name="lastName"><label for="lastName">Last Name</label><br />
-                <input type="text" name="city"><label for="city">City</label><br />
-                <input type="text" name="region"><label for="region">Region</label><br />
-                <input type="text" name="emailOne"><label for="emailOne">Email 1</label><br />
-                <input type="text" name="emailTwo"><label for="emailTwo">Email 2</label><br />
-                <input type="text" name="phoneNumOne"><label for="phoneNumOne">Phone Number 1</label><br />
-                <input type="text" name="PhoneNumTwo"><label for="phoneNumTwo">Phone Number 2</label><br />
+                <input type="text" class="inputText" id="firstName" name="firstName"><label for="firstName">First Name</label><br />
+                <input type="text" class="inputText" id="lastName" name="lastName"><label for="lastName">Last Name</label><br />
+                <input type="text" class="inputText" id="city" name="city"><label for="city">City</label><br />
+                <input type="text" class="inputText" id="region" name="region"><label for="region">Region</label><br />
+                <input type="text" class="inputText" id="emailOne" name="emailOne"><label for="emailOne">Email 1</label><br />
+                <input type="text" class="inputText" id="emailTwo" name="emailTwo"><label for="emailTwo">Email 2</label><br />
+                <input type="text" class="inputText" id="phoneOne" name="phoneNumOne"><label for="phoneNumOne">Phone Number 1</label><br />
+                <input type="text" class="inputText" id="phoneTwo" name="PhoneNumTwo"><label for="phoneNumTwo">Phone Number 2</label><br />
                 <input type="submit" class="btn btn-info btn-large">
             </form>
     </div>
