@@ -39,7 +39,6 @@ function displayContacts(contact){
         $contactDiv.append($edit).append($contactId);
 
         $("#contacts").append($contactDiv);
-        console.log(contact[i]);
         $("#button-" + contact[i].addr_id).click(function(){
             //Gets the value from the hidden input
             loadOneContact($(this).siblings('input').val());
@@ -59,7 +58,6 @@ function loadOneContact(updateId){
         $('#phoneOne').val(res[0].addr_phone_1);
         $('#phoneTwo').val(res[0].addr_phone_2);
 
-        console.log(res[0].addr_phone_2);
         let conId = res[0].addr_id;
         let $updateContact = $("<button>").attr("id", "saveUpdate").addClass("btn-info btn-lg").text("Save").click(function(){
             saveUpdate(conId);
@@ -69,6 +67,7 @@ function loadOneContact(updateId){
 }//End update();
 
 function saveUpdate(id){
+
     $("#saveUpdate").remove();
 }//End saveUpdate
 

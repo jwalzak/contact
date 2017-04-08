@@ -16,6 +16,12 @@ header("Content-Type:applicaton/json");
         $id = $_GET['id'];
         loadOneContact($conn, $id);
     }//End
+}//End if
+
+if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_GET['action'])){
+    if($_GET['action'] == 'saveupdate'){
+        echo json_encode($_POST);
+    }//end inner if
 
 }//End if
 
