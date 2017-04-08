@@ -27,11 +27,11 @@ require_once("Connect.php");
     </div>
     <div id="form" class="col-md-4">
         <main>
-            <form action="">
+            <form id="search" action="">
                 <label for="search">Search by Full name:</label><input name="search_input" id="search" type="text">
                 <input type="submit" class="btn-info btn-lg" value="Search">
             </form>
-            <form action="">
+            <form method="post" id="saveNew">
                 <input type="text" class="inputText" id="firstName" name="firstName"><label for="firstName">First Name</label><br />
                 <input type="text" class="inputText" id="lastName" name="lastName"><label for="lastName">Last Name</label><br />
                 <input type="text" class="inputText" id="city" name="city"><label for="city">City</label><br />
@@ -39,8 +39,8 @@ require_once("Connect.php");
                 <input type="text" class="inputText" id="emailOne" name="emailOne"><label for="emailOne">Email 1</label><br />
                 <input type="text" class="inputText" id="emailTwo" name="emailTwo"><label for="emailTwo">Email 2</label><br />
                 <input type="text" class="inputText" id="phoneOne" name="phoneNumOne"><label for="phoneNumOne">Phone Number 1</label><br />
-                <input type="text" class="inputText" id="phoneTwo" name="PhoneNumTwo"><label for="phoneNumTwo">Phone Number 2</label><br />
-                <input type="submit" class="btn btn-info btn-large">
+                <input type="text" class="inputText" id="phoneTwo" name="phoneNumTwo"><label for="phoneNumTwo">Phone Number 2</label><br />
+                <input type="submit" id="saveButt" class="btn btn-info btn-large">
             </form>
     </div>
 

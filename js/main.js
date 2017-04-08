@@ -2,16 +2,31 @@
 //data gathering
 $(document).ready(function(){
     loadContact();
-    console.log("Loading");
+    $("#saveNew").submit(function(e){
+        e.preventDefault();
+        $.post("data.php?action=newcontact", $(this).serialize(), function(res){
+            console.log(res);
+            loadContact();
+        });
+    });//End #saveNew
+    $("#search").submit(function(e){
+        e.preventDefault();
+        $.post("data.php?action=search", $(this).serialize(), function(res){
+            displayContacts(res);
+        });
+    });//End #search
 });
 
 function loadContact(){
     $.get("data.php?action=load", function(res){
+        // $("#saveNew").empty();
+        $("#contacts").empty();
         displayContacts(res);
     });
 }
 
 function displayContacts(contact){
+
     for(let i = 0; i<contact.length; i++){
         let $contactDiv = $("<div>").addClass('singleContact col-md-3').attr('id', contact[i].id);
         let $userName = $("<p>").text("Name: " + contact[i].addr_first_name + " " + contact[i].addr_last_name);
