@@ -5,7 +5,7 @@
  */
 require_once('Connect.php');
 
-if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['action'])){
+if(isset($_GET['action'])){
 header("Content-Type:applicaton/json");
 
     if($_GET['action'] == "load"){
@@ -16,19 +16,17 @@ header("Content-Type:applicaton/json");
         $id = $_GET['id'];
         loadOneContact($conn, $id);
     }//End
-}//End if
-
-if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_GET['action'])){
-    if($_GET['action'] == 'saveupdate'){
+    
+    if($_GET['action'] == 'saveupdate' && $_SERVER['REQUEST_METHOD'] == "POST"){
         echo json_encode($_POST);
     }//end inner if
 
-    if($_GET['action'] == 'newcontact'){
+    if($_GET['action'] == 'newcontact' && $_SERVER['REQUEST_METHOD'] == 'POST'){
         saveNew($conn);
     }//End inner if
 
-    if($_GET['action'] == 'search'){
-        
+    if($_GET['action'] == 'search' && $_SERVER['REQUEST_METHOD'] == 'POST'){
+        search($conn);
     }//End if
 
 }//End if
@@ -71,10 +69,23 @@ function loadOneContact($connection, $id){
     $rs = $connection->query($query);
 
     while($info = $rs->fetch_assoc()){
+
         array_push($listArray, $info);
     }//End while
     echo json_encode($listArray);
-}
+}//End loadOneContact();
+
+function search($connection){
+    $listArray = array();
+    $searchQuery = $_POST['searchInput'];
+    $query = "SELECT * FROM addresses WHERE addr_first_name="."'$searchQuery'";
+    $rs = $connection->query($query);
+
+        while($info = $rs->fetch_assoc()){
+            array_push($listArray, $info);
+        }//End while
+    echo json_encode($listArray);
+}//End serach() 
 
 
 

@@ -7,19 +7,22 @@ $(document).ready(function(){
         $.post("data.php?action=newcontact", $(this).serialize(), function(res){
             console.log(res);
             loadContact();
+            clearForm();
         });
     });//End #saveNew
+
     $("#search").submit(function(e){
         e.preventDefault();
         $.post("data.php?action=search", $(this).serialize(), function(res){
+            console.log(res);
+            $("#contacts").empty();
             displayContacts(res);
         });
     });//End #search
-});
+});//End document ready
 
 function loadContact(){
     $.get("data.php?action=load", function(res){
-        // $("#saveNew").empty();
         $("#contacts").empty();
         displayContacts(res);
     });
@@ -86,3 +89,13 @@ function saveUpdate(id){
     $("#saveUpdate").remove();
 }//End saveUpdate
 
+function clearForm(){
+    $('#firstName').val("");
+    $('#lastName').val("");
+    $('#city').val("");
+    $('#region').val("");
+    $('#emailOne').val("");
+    $('#emailTwo').val("");
+    $('#phoneOne').val("");
+    $('#phoneTwo').val("");
+}//end clearForm()

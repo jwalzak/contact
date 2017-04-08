@@ -28,7 +28,7 @@ require_once("Connect.php");
     <div id="form" class="col-md-4">
         <main>
             <form id="search" action="">
-                <label for="search">Search by Full name:</label><input name="search_input" id="search" type="text">
+                <label for="search">Search by Full name:</label><input class="inputText" name="searchInput" id="search" type="text">
                 <input type="submit" class="btn-info btn-lg" value="Search">
             </form>
             <form method="post" id="saveNew">
