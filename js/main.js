@@ -16,7 +16,13 @@ $(document).ready(function(){
         $.post("data.php?action=search", $(this).serialize(), function(res){
             console.log(res);
             $("#contacts").empty();
-            displayContacts(res);
+            if(res.length < 1){
+                alert("Sorry, no results found. Please try another name.")
+                loadContact();
+            }
+            else{
+                displayContacts(res);
+            }//End else
         });
     });//End #search
 });//End document ready
