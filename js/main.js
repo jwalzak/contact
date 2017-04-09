@@ -37,13 +37,22 @@ function loadContact(){
 function displayContacts(contact){
 
     for(let i = 0; i<contact.length; i++){
+        let contactId = contact[i].addr_id;
         let $contactDiv = $("<div>").addClass('singleContact col-md-3').attr('id', contact[i].id);
         let $userName = $("<p>").text("Name: " + contact[i].addr_first_name + " " + contact[i].addr_last_name);
         let $userAddress = $("<p>").text("City & Region: " + contact[i].addr_city + " " + contact[i].addr_region);
         let $userEmail = $("<p>").text("Email Address: " + contact[i].addr_email_1);
         let $userPhone = $("<p>").text("Phone Number: " + contact[i].addr_phone_1);
+
+        let $del = $("<a>").append("href", "#").text("X").addClass('delLink').click(function(e){
+            e.preventDefault();
+            $.get("data.php?action=delete&id=" + contactId, function(res){
+                console.log(res);
+            });
+            loadContact();
+        });
         
-        $contactDiv.append($userName).append($userAddress).append($userEmail);
+        $contactDiv.append($del).append($userName).append($userAddress).append($userEmail);
         
         //Adds second email address if it exists
         if(contact[i].addr_email_2 != null){
@@ -58,9 +67,13 @@ function displayContacts(contact){
             let $phoneTwo = $("<p>").text("Home Phone: " + contact[i].addr_phone_2);
             $contactDiv.append($phoneTwo);
         }//End if
-        let $edit = $("<button>").attr("id", "button-" + contact[i].addr_id).addClass('btn btn-info btn-lg').text("Update Contact");
-        let $contactId = $("<input>").attr({id: "input-" + contact[i].addr_id, type: "hidden"}).val(contact[i].addr_id);
-        $contactDiv.append($edit).append($contactId);
+
+        let $edit = $("<button>").attr("id", "button-" + contact[i].addr_id).addClass('btn btn-info btn-sm').text("Update Contact");
+        let $hiddenId = $("<input>").attr({id: "input-" + contact[i].addr_id, type: "hidden"}).val(contact[i].addr_id);
+
+
+        
+        $contactDiv.append($edit).append($hiddenId);
 
         $("#contacts").append($contactDiv);
         $("#button-" + contact[i].addr_id).click(function(){

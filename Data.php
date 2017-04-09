@@ -29,6 +29,11 @@ header("Content-Type:applicaton/json");
         search($conn);
     }//End if
 
+    if($_GET['action'] == 'delete' && $_SERVER['REQUEST_METHOD'] == 'GET'){
+        $id = $_GET['id'];
+        deleteCon($conn, $id);
+    }//End if
+
 }//End if
 
 function saveNew($connection){
@@ -86,6 +91,13 @@ function search($connection){
         }//End while
     echo json_encode($listArray);
 }//End serach() 
+
+function deleteCon($connection, $id){
+    $query = "DELETE FROM addresses WHERE addr_id=" . $id. ";";
+    $rs = $connection->query($query);
+    $replyArray = array("you"=>"did", "it"=>"!");
+    echo json_encode($replyArray);
+}//End deleteCon
 
 
 
