@@ -95,9 +95,11 @@ function loadOneContact(updateId){
         $('#phoneOne').val(res[0].addr_phone_1);
         $('#phoneTwo').val(res[0].addr_phone_2);
 
+        $("#saveUpdate").remove();
         let conId = res[0].addr_id;
-        let $updateContact = $("<button>").attr("id", "saveUpdate").addClass("btn-info btn-lg").text("Save").click(function(){
+        let $updateContact = $("<button>").attr("id", "saveUpdate").addClass("btn-info btn-sm").text("Save").click(function(){
             saveUpdate(conId);
+            clearForm();
         });
         $("#form").append($updateContact);
     });

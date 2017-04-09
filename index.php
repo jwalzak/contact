@@ -9,12 +9,13 @@ require_once("Connect.php");
     <title>CONTACTOR</title>
     
     <!--Fonts used Space Mono and Arvo-->
+    <!--Style-->
     <link href="https://fonts.googleapis.com/css?family=Arvo|Space+Mono:700" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/svg.css" />
     <link rel="stylesheet" href="css/style.css" />
 
-    <!-- <script type="text/javascript" src="/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> -->
+    <!--Scripts-->
     <script type="text/javascript" src="./js/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
 </head>
@@ -29,7 +30,7 @@ require_once("Connect.php");
         <main>
             <form id="search" action="">
                 <label for="search">Search by Full name:</label><input class="inputText" name="searchInput" id="search" type="text">
-                <input type="submit" class="btn-info btn-lg" value="Search">
+                <input type="submit" class="btn-info btn-sm" value="Search">
             </form>
             <form method="post" id="saveNew">
                 <input type="text" class="inputText" id="firstName" name="firstName"><label for="firstName">First Name</label><br />
@@ -40,7 +41,7 @@ require_once("Connect.php");
                 <input type="text" class="inputText" id="emailTwo" name="emailTwo"><label for="emailTwo">Email 2</label><br />
                 <input type="text" class="inputText" id="phoneOne" name="phoneNumOne"><label for="phoneNumOne">Phone Number 1</label><br />
                 <input type="text" class="inputText" id="phoneTwo" name="phoneNumTwo"><label for="phoneNumTwo">Phone Number 2</label><br />
-                <input type="submit" id="saveButt" class="btn btn-info btn-large">
+                <input type="submit" id="saveButt" class="btn btn-info btn-sm">
             </form>
     </div>
 
