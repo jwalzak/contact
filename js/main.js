@@ -42,7 +42,7 @@ function displayContacts(contact){
         let $userName = $("<p>").text("Name: " + contact[i].addr_first_name + " " + contact[i].addr_last_name);
         let $userAddress = $("<p>").text("City & Region: " + contact[i].addr_city + " " + contact[i].addr_region);
         let $userEmail = $("<p>").text("Email Address: " + contact[i].addr_email_1);
-        let $userPhone = $("<p>").text("Phone Number: " + contact[i].addr_phone_1);
+        let $userPhone = $("<p>").text("Phone: " + contact[i].addr_phone_1);
 
         let $del = $("<a>").append("href", "#").text("X").addClass('delLink').click(function(e){
             e.preventDefault();

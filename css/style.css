@@ -12,6 +12,7 @@ header {
 header, h1 {
     font-family: 'Arvo', serif;
     font-size: 2em;
+    text-shadow: 3px 3px #cccccc;
 }
 
 .singleContact{
@@ -30,5 +31,5 @@ header, h1 {
     border: 1px solid #000;
     padding: 2%;
     margin-top: 3%;
-
+    cursor: pointer;
 }
