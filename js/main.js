@@ -27,22 +27,27 @@ $(document).ready(function(){
     });//End #search
 });//End document ready
 
+//Gets the data from the DB and calls the displayContacts() function
+//passing the returned values to the function.
 function loadContact(){
     $.get("data.php?action=load", function(res){
         $("#contacts").empty();
         displayContacts(res);
     });
-}
+}//End loadContact();
 
+//Loads all the contacts onto the page.
 function displayContacts(contact){
 
+//The main loop, takes all the data from loadContact
+//Inputs the data into HTML
     for(let i = 0; i<contact.length; i++){
         let contactId = contact[i].addr_id;
-        let $contactDiv = $("<div>").addClass('singleContact col-md-3').attr('id', contact[i].id);
+        let $contactDiv = $("<div>").addClass('singleContact col-md-8').attr('id', contact[i].id);
         let $userName = $("<p>").text("Name: " + contact[i].addr_first_name + " " + contact[i].addr_last_name);
         let $userAddress = $("<p>").text("City & Region: " + contact[i].addr_city + " " + contact[i].addr_region);
-        let $userEmail = $("<p>").text("Email Address: " + contact[i].addr_email_1);
-        let $userPhone = $("<p>").text("Phone Number: " + contact[i].addr_phone_1);
+        let $userEmail = $("<a>").attr("href", "mailto:" + contact[i].addr_email_1).text("Email Address: " + contact[i].addr_email_1);
+        let $userPhone = $("<a>").attr("href", "tel:" + contact[i].addr_phone_1).text("Phone Number: " + contact[i].addr_phone_1).append("<br>");
 
         let $del = $("<a>").append("href", "#").text("X").addClass('delLink').click(function(e){
             e.preventDefault();
@@ -56,23 +61,24 @@ function displayContacts(contact){
         
         //Adds second email address if it exists
         if(contact[i].addr_email_2 != null){
-            let $emailTwo = $("<p>").text("Work Email: " + contact[i].addr_email_2);
-            $contactDiv.append($emailTwo);
+            let $emailTwo = $("<a>").attr("href", "mailto:" + contact[i].addr_email_2).text("Work Email: " + contact[i].addr_email_2).append("<br />");
+            $contactDiv.append("<br />").append($emailTwo);
         }//End if
 
         $contactDiv.append($userPhone);
 
         //Adds second phone number if it exists
         if(contact[i].addr_phone_2 != null){
-            let $phoneTwo = $("<p>").text("Home Phone: " + contact[i].addr_phone_2);
-            $contactDiv.append($phoneTwo);
+            let $phoneTwo = $("<a>").attr("href", "tel:" + contact[i].addr_phone_2).text("Home Phone: " + contact[i].addr_phone_2);
+            $contactDiv.append($phoneTwo).append("<br>");
         }//End if
 
+        //Creates a button for editing a contact
+        //It will only show when the user clicks to update a contact from 
+        //the contact list.
         let $edit = $("<button>").attr("id", "button-" + contact[i].addr_id).addClass('btn btn-info btn-sm').text("Update Contact");
         let $hiddenId = $("<input>").attr({id: "input-" + contact[i].addr_id, type: "hidden"}).val(contact[i].addr_id);
 
-
-        
         $contactDiv.append($edit).append($hiddenId);
 
         $("#contacts").append($contactDiv);
@@ -85,7 +91,11 @@ function displayContacts(contact){
 
 //Update contact function
 function loadOneContact(updateId){
+    //Hides the submit new contact button
+    $("#saveButt").hide();
+
     $.get("data.php?action=update&id=" + updateId, function(res){
+        //Fills the form with data returned from the DB.
         $('#firstName').val(res[0].addr_first_name);
         $('#lastName').val(res[0].addr_last_name);
         $('#city').val(res[0].addr_city);
@@ -95,6 +105,7 @@ function loadOneContact(updateId){
         $('#phoneOne').val(res[0].addr_phone_1);
         $('#phoneTwo').val(res[0].addr_phone_2);
 
+        //Prevents multiple #saveUpdate buttons from appearing on the page
         $("#saveUpdate").remove();
         let conId = res[0].addr_id;
         let $updateContact = $("<button>").attr("id", "saveUpdate").addClass("btn-info btn-sm").text("Save").click(function(){
@@ -106,14 +117,17 @@ function loadOneContact(updateId){
 }//End update();
 
 function saveUpdate(id){
-
     $.post("data.php?action=saveupdate&id=" + id, $("#saveNew").serialize(), function(res){
-       console.log(res);
+        console.log(res);
     });
 
+    loadContact();
     $("#saveUpdate").remove();
+    $("#saveButt").show();
 }//End saveUpdate
 
+
+//Used to empty the form of data when submit or save button is clicked.
 function clearForm(){
     $('#firstName').val("");
     $('#lastName').val("");

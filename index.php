@@ -36,14 +36,22 @@ require_once("Connect.php");
             </form>
             <form method="post" id="saveNew">
             <div class="form-group">
-                <input type="text" class="form-control input-sm" id="firstName" name="firstName"><label for="firstName">First Name</label><br />
-                <input type="text" class="form-control input-sm" id="lastName" name="lastName"><label for="lastName">Last Name</label><br />
-                <input type="text" class="form-control input-sm" id="city" name="city"><label for="city">City</label><br />
-                <input type="text" class="form-control input-sm" id="region" name="region"><label for="region">Region</label><br />
-                <input type="text" class="form-control input-sm" id="emailOne" name="emailOne"><label for="emailOne">Email 1</label><br />
-                <input type="text" class="form-control input-sm" id="emailTwo" name="emailTwo"><label for="emailTwo">Email 2</label><br />
-                <input type="text" class="form-control input-sm" id="phoneOne" name="phoneNumOne"><label for="phoneNumOne">Phone Number 1</label><br />
-                <input type="text" class="form-control input-sm" id="phoneTwo" name="phoneNumTwo"><label for="phoneNumTwo">Phone Number 2</label><br />
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control input-sm" id="firstName" name="firstName"><br />
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control input-sm" id="lastName" name="lastName"><br />
+                <label for="city">City</label>
+                <input type="text" class="form-control input-sm" id="city" name="city"><br />
+                <label for="region">Region</label>
+                <input type="text" class="form-control input-sm" id="region" name="region"><br />
+                <label for="emailOne">Email 1</label>
+                <input type="text" class="form-control input-sm" id="emailOne" name="emailOne"><br />
+                <label for="emailTwo">Email 2</label>
+                <input type="text" class="form-control input-sm" id="emailTwo" name="emailTwo"><br />
+                <label for="phoneNumOne">Phone Number 1</label>
+                <input type="text" class="form-control input-sm" id="phoneOne" name="phoneNumOne"><br />
+                <label for="phoneNumTwo">Phone Number 2</label>
+                <input type="text" class="form-control input-sm" id="phoneTwo" name="phoneNumTwo"><br />
                 <input type="submit" id="saveButt" class="btn btn-info btn-sm">
             </div>
             </form>

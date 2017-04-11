@@ -110,7 +110,18 @@ function updateContact($connection){
     $phoneNumTwo = $_POST['phoneNumTwo'];
     $id = $_GET['id'];
 
-    // $query = "UPDATE addresses SET "
+    $query = 'UPDATE addresses SET 
+                     addr_first_name= "'.$firstName.'",
+                     addr_last_name= "'.$lastName.'",
+                     addr_city="'.$city.'",
+                     addr_region="'.$region.'",
+                     addr_email_1="'.$emailOne.'",
+                     addr_email_2="'.$emailTwo.'",
+                     addr_phone_1="'.$phoneNumOne.'",
+                     addr_phone_2="'.$phoneNumTwo.'" 
+                     WHERE addr_id="'.$id.'"';
+
+$rs = $connection->query($query);
 
 }//End updateContact()
 
