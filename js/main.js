@@ -107,7 +107,7 @@ function loadOneContact(updateId){
 
 function saveUpdate(id){
 
-    $.post("data.php?action=saveupdate", $("#saveNew").serialize(), function(res){
+    $.post("data.php?action=saveupdate&id=" + id, $("#saveNew").serialize(), function(res){
        console.log(res);
     });
 

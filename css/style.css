@@ -16,6 +16,9 @@ header, h1 {
 
 .singleContact{
     border: 1px solid #000;
+    background: #dcdcdc;
+    word-wrap: break-word;
+    margin-bottom: 3%;
 }
 
 .inputText{

@@ -18,7 +18,7 @@ header("Content-Type:applicaton/json");
     }//End
     
     if($_GET['action'] == 'saveupdate' && $_SERVER['REQUEST_METHOD'] == "POST"){
-        echo json_encode($_POST);
+        updateContact($conn);
     }//end inner if
 
     if($_GET['action'] == 'newcontact' && $_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -98,6 +98,21 @@ function deleteCon($connection, $id){
     $replyArray = array("you"=>"did", "it"=>"!");
     echo json_encode($replyArray);
 }//End deleteCon
+
+function updateContact($connection){
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $city = $_POST['city'];
+    $region = $_POST['region'];
+    $emailOne = $_POST['emailOne'];
+    $emailTwo = $_POST['emailTwo'];
+    $phoneNumOne = $_POST['phoneNumOne'];
+    $phoneNumTwo = $_POST['phoneNumTwo'];
+    $id = $_GET['id'];
+
+    // $query = "UPDATE addresses SET "
+
+}//End updateContact()
 
 
 
