@@ -55,12 +55,12 @@ function displayContacts(contact){
                 console.log(res);
             });
             loadContact();
-        });
+        });//End del
         
         $contactDiv.append($del).append($userName).append($userAddress).append($userEmail);
         
         //Adds second email address if it exists
-        if(contact[i].addr_email_2 != null){
+        if(contact[i].addr_email_2 != null || contact[i].addr_email_2 != ""){
             let $emailTwo = $("<a>").attr("href", "mailto:" + contact[i].addr_email_2).text("Work Email: " + contact[i].addr_email_2).append("<br />");
             $contactDiv.append("<br />").append($emailTwo);
         }//End if
@@ -68,7 +68,7 @@ function displayContacts(contact){
         $contactDiv.append($userPhone);
 
         //Adds second phone number if it exists
-        if(contact[i].addr_phone_2 != null){
+        if(contact[i].addr_phone_2 != null  || contact[i].addr_phone_2 != ""){
             let $phoneTwo = $("<a>").attr("href", "tel:" + contact[i].addr_phone_2).text("Home Phone: " + contact[i].addr_phone_2);
             $contactDiv.append($phoneTwo).append("<br>");
         }//End if
