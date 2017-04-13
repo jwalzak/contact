@@ -122,6 +122,7 @@ function saveUpdate(id){
     });
 
     loadContact();
+
     $("#saveUpdate").remove();
     $("#saveButt").show();
 }//End saveUpdate
