@@ -43,7 +43,7 @@ function displayContacts(contact){
 //Inputs the data into HTML
     for(let i = 0; i<contact.length; i++){
         let contactId = contact[i].addr_id;
-        let $contactDiv = $("<div>").addClass('singleContact col-md-8').attr('id', contact[i].id);
+        let $contactDiv = $("<div>").addClass('singleContact col-md-8 col-sm-12').attr('id', contact[i].id);
         let $userName = $("<p>").text("Name: " + contact[i].addr_first_name + " " + contact[i].addr_last_name);
         let $userAddress = $("<p>").text("City & Region: " + contact[i].addr_city + " " + contact[i].addr_region);
         let $userEmail = $("<a>").attr("href", "mailto:" + contact[i].addr_email_1).text("Email Address: " + contact[i].addr_email_1);

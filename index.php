@@ -26,7 +26,7 @@ require_once("Connect.php");
             <h1 class="title" id="title">Contact</h1>
         </header>
     </div>
-    <div id="form" class="col-md-4">
+    <div id="form" class="col-md-4 col-sm-12">
         <main>
             <form id="search" action="">
             <div class="form-group">
@@ -57,7 +57,7 @@ require_once("Connect.php");
             </form>
     </div>
 
-        <div id="contacts" class="contacts row table-row col-md-8"></div>
+        <div id="contacts" class="contacts row table-row col-md-8 col-sm-12"></div>
     </div>
         </main>
 
