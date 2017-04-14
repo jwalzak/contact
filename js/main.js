@@ -21,7 +21,7 @@ $(document).ready(function(){
                 loadContact();
             }
             else{
-                displayContacts(res);
+                displayResult(res);
             }//End else
         });
     });//End #search
@@ -46,8 +46,11 @@ function displayContacts(contact){
         let $contactDiv = $("<div>").addClass('singleContact col-md-8 col-sm-12').attr('id', contact[i].id);
         let $userName = $("<p>").text("Name: " + contact[i].addr_first_name + " " + contact[i].addr_last_name);
         let $userAddress = $("<p>").text("City & Region: " + contact[i].addr_city + " " + contact[i].addr_region);
-        let $userEmail = $("<a>").attr("href", "mailto:" + contact[i].addr_email_1).text("Email Address: " + contact[i].addr_email_1);
+        let $userEmail = $("<a>").attr("href", "mailto:" + contact[i].addr_email_1).text("Email Address: " + contact[i].addr_email_1).append("<br />");
+        let $emailTwo = $("<a>").attr("href", "mailto:" + contact[i].addr_email_2).text("Work Email: " + contact[i].addr_email_2).append("<br />");
+            $contactDiv.append("<br />").append($emailTwo);
         let $userPhone = $("<a>").attr("href", "tel:" + contact[i].addr_phone_1).text("Phone Number: " + contact[i].addr_phone_1).append("<br>");
+        let $phoneTwo = $("<a>").attr("href", "tel:" + contact[i].addr_phone_2).text("Home Phone: " + contact[i].addr_phone_2).append("<br />");
 
         let $del = $("<a>").append("href", "#").text("X").addClass('delLink').click(function(e){
             e.preventDefault();
@@ -57,21 +60,7 @@ function displayContacts(contact){
             loadContact();
         });//End del
         
-        $contactDiv.append($del).append($userName).append($userAddress).append($userEmail);
-        
-        //Adds second email address if it exists
-        if(contact[i].addr_email_2 != null || contact[i].addr_email_2 != ""){
-            let $emailTwo = $("<a>").attr("href", "mailto:" + contact[i].addr_email_2).text("Work Email: " + contact[i].addr_email_2).append("<br />");
-            $contactDiv.append("<br />").append($emailTwo);
-        }//End if
-
-        $contactDiv.append($userPhone);
-
-        //Adds second phone number if it exists
-        if(contact[i].addr_phone_2 != null  || contact[i].addr_phone_2 != ""){
-            let $phoneTwo = $("<a>").attr("href", "tel:" + contact[i].addr_phone_2).text("Home Phone: " + contact[i].addr_phone_2);
-            $contactDiv.append($phoneTwo).append("<br>");
-        }//End if
+        $contactDiv.append($del).append($userName).append($userAddress).append($userEmail).append($emailTwo).append($userPhone).append($phoneTwo);
 
         //Creates a button for editing a contact
         //It will only show when the user clicks to update a contact from 
@@ -139,3 +128,31 @@ function clearForm(){
     $('#phoneOne').val("");
     $('#phoneTwo').val("");
 }//end clearForm()
+
+//Show the name of the contacts that are returned from the search function.
+function displayResult(contact){
+    for(let i = 0; i<contact.length; i++){
+        let contactId = contact[i].addr_id;
+        let $contactDiv = $("<div>").addClass('singleContact col-md-8 col-sm-12').attr('id', contact[i].id);
+        let $name = $("<p>").text("Name:" + contact[i].addr_first_name + " " + contact[i].addr_last_name);
+        $contactDiv.append($name);
+        $contactDiv.click(function(){
+        $contactDiv.empty();
+            console.log(contact);
+            let $address = $("<p>").text("City & Region: " + contact[i].addr_city + " " + contact[i].addr_region);
+            let $email = $("<a>").attr("href", "mailto:" + contact[i].addr_email_1).text("Email Address: " + contact[i].addr_email_1).append("<br />");
+            let $emailTwo = $("<a>").attr("href", "mailto:" + contact[i].addr_email_2).text("Work Email: " + contact[i].addr_email_2).append("<br />");
+            let $phone = $("<a>").attr("href", "tel:" + contact[i].addr_phone_1).text("Phone Number: " + contact[i].addr_phone_1).append("<br />");
+            let $phoneTwo = $("<a>").attr("href", "tel:" + contact[i].addr_phone_2).text("Home Phone: " + contact[i].addr_phone_2);
+            let $del = $("<a>").append("href", "#").text("X").addClass('delLink').click(function(e){
+            e.preventDefault();
+            $.get("data.php?action=delete&id=" + contactId, function(res){
+                console.log(res);
+            });
+            loadContact();
+        });//End del
+            $contactDiv.append($name).append($address).append($email).append($emailTwo).append($phone).append($phoneTwo).append($del);
+        }); 
+        $("#contacts").append($contactDiv);
+    }//End for
+}//End displayResult()

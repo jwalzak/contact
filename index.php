@@ -6,7 +6,7 @@ require_once("Connect.php");
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CONTACTOR</title>
+    <title>CONTACT</title>
     
     <!--Fonts used Space Mono and Arvo-->
     <!--Style-->
