@@ -122,7 +122,6 @@ function updateContact($connection){
                      WHERE addr_id="'.$id.'"';
 
 $rs = $connection->query($query);
-
 }//End updateContact()
 
 

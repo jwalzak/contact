@@ -1,5 +1,8 @@
 //Document load for the initial 
 //data gathering
+//Coder: Jason Walzak
+//Date: April 14 2017
+//Class: LAMP2
 $(document).ready(function(){
     loadContact();
     $("#saveNew").submit(function(e){
@@ -40,7 +43,7 @@ function loadContact(){
 function displayContacts(contact){
 
 //The main loop, takes all the data from loadContact
-//Inputs the data into HTML
+//Inputs the data into DOM
     for(let i = 0; i<contact.length; i++){
         let contactId = contact[i].addr_id;
         let $contactDiv = $("<div>").addClass('singleContact col-md-8 col-sm-12').attr('id', contact[i].id);
@@ -109,11 +112,9 @@ function saveUpdate(id){
     $.post("data.php?action=saveupdate&id=" + id, $("#saveNew").serialize(), function(res){
         console.log(res);
     });
-
-    loadContact();
-
-    $("#saveUpdate").remove();
-    $("#saveButt").show();
+        $("#saveButt").show();
+        $("#saveUpdate").remove();
+        loadContact();
 }//End saveUpdate
 
 
