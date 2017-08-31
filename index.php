@@ -1,5 +1,5 @@
 <?php
-require_once("data.php");
+require_once("Data.php");
 require_once("Connect.php");
 ?>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ require_once("Connect.php");
     <!--Fonts used Space Mono and Arvo-->
     <!--Style-->
     <link href="https://fonts.googleapis.com/css?family=Arvo|Space+Mono:700" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/svg.css" />
     <link rel="stylesheet" href="css/style.css" />
 

@@ -7,7 +7,7 @@ $(document).ready(function(){
     loadContact();
     $("#saveNew").submit(function(e){
         e.preventDefault();
-        $.post("data.php?action=newcontact", $(this).serialize(), function(res){
+        $.post("Data.php?action=newcontact", $(this).serialize(), function(res){
             console.log(res);
             loadContact();
             clearForm();
@@ -16,7 +16,7 @@ $(document).ready(function(){
 
     $("#search").submit(function(e){
         e.preventDefault();
-        $.post("data.php?action=search", $(this).serialize(), function(res){
+        $.post("Data.php?action=search", $(this).serialize(), function(res){
             console.log(res);
             $("#contacts").empty();
             if(res.length < 1){
@@ -33,7 +33,7 @@ $(document).ready(function(){
 //Gets the data from the DB and calls the displayContacts() function
 //passing the returned values to the function.
 function loadContact(){
-    $.get("data.php?action=load", function(res){
+    $.get("Data.php?action=load", function(res){
         $("#contacts").empty();
         displayContacts(res);
     });
@@ -57,7 +57,7 @@ function displayContacts(contact){
 
         let $del = $("<a>").append("href", "#").text("X").addClass('delLink').click(function(e){
             e.preventDefault();
-            $.get("data.php?action=delete&id=" + contactId, function(res){
+            $.get("Data.php?action=delete&id=" + contactId, function(res){
                 console.log(res);
             });
             loadContact();
@@ -86,7 +86,7 @@ function loadOneContact(updateId){
     //Hides the submit new contact button
     $("#saveButt").hide();
 
-    $.get("data.php?action=update&id=" + updateId, function(res){
+    $.get("Data.php?action=update&id=" + updateId, function(res){
         //Fills the form with data returned from the DB.
         $('#firstName').val(res[0].addr_first_name);
         $('#lastName').val(res[0].addr_last_name);
@@ -109,7 +109,7 @@ function loadOneContact(updateId){
 }//End update();
 
 function saveUpdate(id){
-    $.post("data.php?action=saveupdate&id=" + id, $("#saveNew").serialize(), function(res){
+    $.post("Data.php?action=saveupdate&id=" + id, $("#saveNew").serialize(), function(res){
         console.log(res);
     });
         $("#saveButt").show();
@@ -147,7 +147,7 @@ function displayResult(contact){
             let $phoneTwo = $("<a>").attr("href", "tel:" + contact[i].addr_phone_2).text("Home Phone: " + contact[i].addr_phone_2);
             let $del = $("<a>").append("href", "#").text("X").addClass('delLink').click(function(e){
             e.preventDefault();
-            $.get("data.php?action=delete&id=" + contactId, function(res){
+            $.get("Data.php?action=delete&id=" + contactId, function(res){
                 console.log(res);
             });
             loadContact();
